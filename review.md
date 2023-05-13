@@ -6,3 +6,6 @@ Khan video series on the Internet.
 https://www.khanacademy.org/partner-content/code-org/internet-works/v/the-internet-packet-routers-and-reliability
 
 Lesson 2 notes in notion.
+
+HTTP LS book: https://launchschool.com/books/http/read/introduction
+
