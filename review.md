@@ -9,3 +9,4 @@ Lesson 2 notes in notion.
 
 HTTP LS book: https://launchschool.com/books/http/read/introduction
 
+Lesson 3 notes in notion.
