@@ -84,3 +84,4 @@ GET requests should only retrieve content from the server. They can generally be
 POST requests involve changing values that are stored on the server. Most HTML forms that submit their values to the server will use POST. Search forms are a noticeable exception to this rule: they often use GET since they are not changing any data on the server, only viewing it.
 
 Lesson 4 notes in notion.
+Examples of bash files in /bash_basics
