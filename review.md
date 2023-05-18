@@ -85,3 +85,5 @@ POST requests involve changing values that are stored on the server. Most HTML f
 
 Lesson 4 notes in notion.
 Examples of bash files in /bash_basics
+
+HTTP project in /simple_http_server
