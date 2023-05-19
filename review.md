@@ -87,3 +87,5 @@ Lesson 4 notes in notion.
 Examples of bash files in /bash_basics
 
 HTTP project in /simple_http_server
+
+Lesson 5 notes in notion - Transport Layer Security (TLS)
