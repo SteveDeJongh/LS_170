@@ -125,7 +125,7 @@ A port number in simple terms is an identifier for a specific process running a 
 Data from the application layer is encapsulated as the data payload in this PDU for the transport layer, which contains destination and source port numbers. This entire PDU is then encapsulated as the data payload in an IP packet on the internet layer and can be used to direct data from one host to another.
 
 -(SD) What is a socket?
-A socket is the combination of IP address and port number that provide a communication end-point. This is sometimes called a network socket. At an implementation level it can refer to a socket object that is used to create connections between applicationts.
+A socket is the combination of IP address and port number that provide a communication end-point. This is sometimes called a network socket. At an implementation level it can refer to a socket object that is used to create connections between applications.
 
 -Have an understanding of how DNS works
 
@@ -136,11 +136,10 @@ DNS resolves domain names to IP addresses.
 Sequence of events:
 Enter domain into web browser, if the web browser or OS can't resolve the domain.
 Sends query to next level (recursive name server (RNS)) ISP level checks own cache memory if it cant...
-Root server is at the top level of a DNS heirarchy ( 13 ), manage the request for top level domains.
+Root server is at the top level of a DNS hierarchy ( 13 ), manage the request for top level domains.
 Request is then sent to the appropriate top level domain server
-Will then contact authoratatize name servers that contain the list of domain names and IP addresses.
-Once IP address is retreived, its sent back to the RNS and your own computer.
-
+Will then contact authoritative name servers that contain the list of domain names and IP addresses.
+Once IP address is retrieved, its sent back to the RNS and your own computer.
 
 -Understand the client-server model of web interactions, and the role of HTTP as a protocol within that model
 
