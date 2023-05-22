@@ -98,12 +98,34 @@ Test, approx 22 questions, 3 hour time limit.
 
 #### Study Guide ####
 
+Videos series on Networks/The internet (EP 28,29,30):
+https://www.youtube.com/watch?v=3QhU9jd03a0
+
 The Internet
 Have a broad understanding of what the internet is and how it works
+
+The internet at it's most basic form can be thought of as a network of networks. It's a distributed packet-switched network.
+
 Understand the characteristics of the physical network, such as latency and bandwidth
+
+Latency is a measure of the time it takes for some data to get from one point in a network to another point a network. There are many delay factors that contribute to overall latency, these include: proprogation delay, transmission delay, processing delay, and queuing delay.
+Bandwidth is the amount of data that can sent in a particular unit of time (typically a second)
+
 Have a basic understanding of how lower level protocols operate
+
+
+
 Know what an IP address is and what a port number is
+
+The PDU for the Internet Protocol Suite is called a packet.
+IP Addresses are logical in nature. This means they are not tied to a specific devies, but can be assigned as required to devices as they join the network. IPv4 address are 32 bits in lengnth and are dvided into four sections fo eight bits each. When converted from binary to decimal, it may look soemthing like `120.123.106.57`.
+
+A port number is
+
 Have an understanding of how DNS works
+
+
+
 Understand the client-server model of web interactions, and the role of HTTP as a protocol within that model
 
 TCP & UDP
