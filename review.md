@@ -102,49 +102,72 @@ Videos series on Networks/The internet (EP 28,29,30):
 https://www.youtube.com/watch?v=3QhU9jd03a0
 
 The Internet
-Have a broad understanding of what the internet is and how it works
+-Have a broad understanding of what the internet is and how it works
 
 The internet at it's most basic form can be thought of as a network of networks. It's a distributed packet-switched network.
 
-Understand the characteristics of the physical network, such as latency and bandwidth
+-Understand the characteristics of the physical network, such as latency and bandwidth
 
 Latency is a measure of the time it takes for some data to get from one point in a network to another point a network. There are many delay factors that contribute to overall latency, these include: proprogation delay, transmission delay, processing delay, and queuing delay.
 Bandwidth is the amount of data that can sent in a particular unit of time (typically a second)
 
-Have a basic understanding of how lower level protocols operate
+-Have a basic understanding of how lower level protocols operate
 
 
 
-Know what an IP address is and what a port number is
+-Know what an IP address is and what a port number is
 
 The PDU for the Internet Protocol Suite is called a packet.
 IP Addresses are logical in nature. This means they are not tied to a specific devies, but can be assigned as required to devices as they join the network. IPv4 address are 32 bits in lengnth and are dvided into four sections fo eight bits each. When converted from binary to decimal, it may look soemthing like `120.123.106.57`.
 
-A port number is
+A port number in simple terms is an identifier for a specific process running a host. This identifier is an integer in teh range of 0-65535. The port number is added on to the network IP address to create a socket. The combination of IP address and port number information can be thought of as defining a communication end-point (`120.123.105.57:52883`). Source port and destination port numbers are included in the PDU for the transport layer.
 
-Have an understanding of how DNS works
+Data from the application layer is encapsulated as the data payload in this PDU for the transport layer, which contains destination and source port numbers. This entire PDU is then encapsulated as the data payload in an IP packet on the internet layer and can be used to direct data from one host to another.
+
+-Have an understanding of how DNS works
 
 
 
-Understand the client-server model of web interactions, and the role of HTTP as a protocol within that model
+-Understand the client-server model of web interactions, and the role of HTTP as a protocol within that model
 
 TCP & UDP
-Have a clear understanding of the TCP and UDP protocols, their similarities and differences
-Have a broad understanding of the three-way handshake and its purpose
-Have a broad understanding of flow control and congestion avoidance
+-Have a clear understanding of the TCP and UDP protocols, their similarities and differences
+
+Transmission control protocol (TCP) and UDP and both protocols at the transport layer. 
+
+One of the key characteristics of TCP is the fact that it provides reliable data transfer. TCP provides; data integrity, de-duplication, in-order deliver, and restransmission of lost data for the application layer.
+
+Reliability is the corner stone of TCP, but this reliability does come at the cost of performance. TCP provides data encapsulation and multiplexing through the use of TCP segments. With TCP, there is an entire round-trip of latency before any application data can be exchanged.
+
+TCP implements flow-control (done via the WIDNOW field of the TCP header) and congestion avoidance (by using data loss feedback).
+
+Disadvantages of TCP:
+TCP has overhead latency due to the three way handshake used to establish a TCPm connection.
+Another potential issue with TCP is head-of-line block (HOL). 
+
+-Have a broad understanding of the three-way handshake and its purpose
+TCP establishes a connection via what's known as a Three-way Handshake and is where the SYN and ACK flags come into play.
+
+The three-way handshake process looks like:
+1) Sender sends a SYN message
+2) receiver receives SYN segment, responds with SYN ACK segement
+3) sender receives SYN ACK segement, responds with ACK segement. Once ACK segment is sent, sender can immediaitely begin sending application data.
+Receiver receives ACK segement and connection is now established.
+
+-Have a broad understanding of flow control and congestion avoidance
 
 URLs
-Be able to identify the components of a URL, including query strings
-Be able to construct a valid URL
-Have an understanding of what URL encoding is and when it might be used
+-Be able to identify the components of a URL, including query strings
+-Be able to construct a valid URL
+-Have an understanding of what URL encoding is and when it might be used
 
 HTTP and the Request/Response Cycle
-Be able to explain what HTTP requests and responses are, and identify the components of each
-Be able to describe the HTTP request/response cycle
-Be able to explain what status codes are, and provide examples of different status code types
-Understand what is meant by 'state' in the context of the web, and be able to explain some techniques that are used to simulate state
-Explain the difference between GET and POST, and know when to choose each
+-Be able to explain what HTTP requests and responses are, and identify the components of each
+-Be able to describe the HTTP request/response cycle
+-Be able to explain what status codes are, and provide examples of different status code types
+-Understand what is meant by 'state' in the context of the web, and be able to explain some techniques that are used to simulate state
+-Explain the difference between GET and POST, and know when to choose each
 
 Security
-Have an understanding of various security risks that can affect HTTP, and be able to outline measures that can be used to mitigate against these risks
-Be aware of the different services that TLS can provide, and have a broad understanding of each of those services
+-Have an understanding of various security risks that can affect HTTP, and be able to outline measures that can be used to mitigate against these risks
+-Be aware of the different services that TLS can provide, and have a broad understanding of each of those services
