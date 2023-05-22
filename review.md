@@ -124,8 +124,22 @@ A port number in simple terms is an identifier for a specific process running a 
 
 Data from the application layer is encapsulated as the data payload in this PDU for the transport layer, which contains destination and source port numbers. This entire PDU is then encapsulated as the data payload in an IP packet on the internet layer and can be used to direct data from one host to another.
 
+-(SD) What is a socket?
+A socket is the combination of IP address and port number that provide a communication end-point. This is sometimes called a network socket. At an implementation level it can refer to a socket object that is used to create connections between applicationts.
+
 -Have an understanding of how DNS works
 
+The domain name system is a distributed database which maps a domain name such as www.google.com to an IP address. When we enter a domain name into a client browser, the request is passed to DNS server and the DNS returns the IP address of that server.
+
+DNS resolves domain names to IP addresses.
+
+Sequence of events:
+Enter domain into web browser, if the web browser or OS can't resolve the domain.
+Sends query to next level (recursive name server (RNS)) ISP level checks own cache memory if it cant...
+Root server is at the top level of a DNS heirarchy ( 13 ), manage the request for top level domains.
+Request is then sent to the appropriate top level domain server
+Will then contact authoratatize name servers that contain the list of domain names and IP addresses.
+Once IP address is retreived, its sent back to the RNS and your own computer.
 
 
 -Understand the client-server model of web interactions, and the role of HTTP as a protocol within that model
@@ -133,7 +147,7 @@ Data from the application layer is encapsulated as the data payload in this PDU 
 TCP & UDP
 -Have a clear understanding of the TCP and UDP protocols, their similarities and differences
 
-Transmission control protocol (TCP) and UDP and both protocols at the transport layer. 
+Transmission control protocol (TCP) and UDP (user datagram protocol) and both protocols at the transport layer. TCP is a connection oriented protocol while UDP is a connectionless oriented protocol.
 
 One of the key characteristics of TCP is the fact that it provides reliable data transfer. TCP provides; data integrity, de-duplication, in-order deliver, and restransmission of lost data for the application layer.
 
@@ -143,7 +157,16 @@ TCP implements flow-control (done via the WIDNOW field of the TCP header) and co
 
 Disadvantages of TCP:
 TCP has overhead latency due to the three way handshake used to establish a TCPm connection.
-Another potential issue with TCP is head-of-line block (HOL). 
+Another potential issue with TCP is head-of-line block (HOL). This can occur due to TCPs in order delviery of segemtns. If one of the segments that goes missing comes early in a sequence the segments that come after it in squence can't be processed and will need to be buffered until retransmission has occured.
+Advantages of TCP:
+Provides for a reliable transportation of data.
+
+UDP on the otherhand does not provide for any of the following; message delivery, message delivery order, built in congestion avoidance or flow control, connection state tracking. UDP PDU's are known as Datagram and is made up of four parts: Source port, destination port, length, and checksum. The checksum port is even optional depending on if were using IPv4 or IPv6 at the network layer. The case for UDP is it's speed and flexibility. The UDP protocol can be great for something like voice or video calling, where the occasional pirce of dropped data leading to a sketchy glitchy call might not matter in relation to the trade off of speed.
+
+Disadvantages of UDP:
+Unreliable protocol due to the lack of reliability, no inorder delivery, and no congestion avoidance or flow contorl.
+Advantages of UDP:
+Speed and flexibility
 
 -Have a broad understanding of the three-way handshake and its purpose
 TCP establishes a connection via what's known as a Three-way Handshake and is where the SYN and ACK flags come into play.
@@ -156,10 +179,33 @@ Receiver receives ACK segement and connection is now established.
 
 -Have a broad understanding of flow control and congestion avoidance
 
+TCP implements Flow control to prevent the sender from overwhelming the receiver with too much data at once. TCP implements this by tell the other side of the connection how much data it is willing to accept via the WINDOW field in the TCP header. The number can change throughout the connection, as data loads will change.
+
+TCP implements congestion avoidance by listening to the data loss feedback. If lots of messages are requiring retransmission, TCP takes this as a sign the network is congested and reduces the size of the transmission window.
+
+-(SD) Multiplexing and demultiplexing
+Multiplexing and demultiplexing provides the ability to trasnmit multiple signals over a single channel.
+
 URLs
 -Be able to identify the components of a URL, including query strings
+URLs are made of 5 components: `http://wwww.example.com:88/home?item=book`
+`http` - This the scheme and always comes before the colon and two forward slashes. It tells the client how to access the resource.
+`www.example.com` - This is the host. It tell the client where the resource is hosted or located.
+`:88` - This is the port number. IT is only required if you want to use a port other than the default.
+`/home` - This is the path. It shows what local resource is being requested. This part of the url is optional.
+`?item=book` - This is a query string, which is made up of query parameters. IT is uses to send data to the server. This part is also optional.
+
 -Be able to construct a valid URL
+
+
+
 -Have an understanding of what URL encoding is and when it might be used
+URL Encoding is done using a `%` symbol and the UTF-8 code to include the character in the url. This is done when the character is not part of the 128-character ASCII character set, or when the character being used is a reserved or unsafe ASCII character.
+
+Characters must be encoed if:
+They have no correspdoning character within the standard aSCII character set.
+The use fot he character is unsafe since it may be misinterpreted or modifed by some systems.
+The character is reserverd for special use within the URL scheme (ie: / ? : @ and &)
 
 HTTP and the Request/Response Cycle
 -Be able to explain what HTTP requests and responses are, and identify the components of each
