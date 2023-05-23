@@ -104,7 +104,7 @@ https://www.youtube.com/watch?v=3QhU9jd03a0
 The Internet
 -Have a broad understanding of what the internet is and how it works
 
-The internet at it's most basic form can be thought of as a network of networks. It's a distributed packet-switched network.
+The internet at its most basic form can be thought of as a network of networks. It's a distributed packet-switched network. It can be thought of as the infrastructure that enables inter-network communication, both in terms of the physical network and the lower-level protocols that control it use.
 
 -Understand the characteristics of the physical network, such as latency and bandwidth
 
@@ -143,12 +143,14 @@ Once IP address is retrieved, its sent back to the RNS and your own computer.
 
 -Understand the client-server model of web interactions, and the role of HTTP as a protocol within that model
 
+
+
 TCP & UDP
 -Have a clear understanding of the TCP and UDP protocols, their similarities and differences
 
 Transmission control protocol (TCP) and UDP (user datagram protocol) and both protocols at the transport layer. TCP is a connection oriented protocol while UDP is a connectionless oriented protocol.
 
-One of the key characteristics of TCP is the fact that it provides reliable data transfer. TCP provides; data integrity, de-duplication, in-order deliver, and restransmission of lost data for the application layer.
+One of the key characteristics of TCP is the fact that it provides reliable data transfer. TCP provides; data integrity, de-duplication, in-order deliver, and retransmission of lost data for the application layer.
 
 Reliability is the corner stone of TCP, but this reliability does come at the cost of performance. TCP provides data encapsulation and multiplexing through the use of TCP segments. With TCP, there is an entire round-trip of latency before any application data can be exchanged.
 
@@ -156,14 +158,14 @@ TCP implements flow-control (done via the WIDNOW field of the TCP header) and co
 
 Disadvantages of TCP:
 TCP has overhead latency due to the three way handshake used to establish a TCPm connection.
-Another potential issue with TCP is head-of-line block (HOL). This can occur due to TCPs in order delviery of segemtns. If one of the segments that goes missing comes early in a sequence the segments that come after it in squence can't be processed and will need to be buffered until retransmission has occured.
+Another potential issue with TCP is head-of-line block (HOL). This can occur due to TCPs in order delivery of segments. If one of the segments that goes missing comes early in a sequence the segments that come after it in sequence can't be processed and will need to be buffered until retransmission has occurred.
 Advantages of TCP:
 Provides for a reliable transportation of data.
 
-UDP on the otherhand does not provide for any of the following; message delivery, message delivery order, built in congestion avoidance or flow control, connection state tracking. UDP PDU's are known as Datagram and is made up of four parts: Source port, destination port, length, and checksum. The checksum port is even optional depending on if were using IPv4 or IPv6 at the network layer. The case for UDP is it's speed and flexibility. The UDP protocol can be great for something like voice or video calling, where the occasional pirce of dropped data leading to a sketchy glitchy call might not matter in relation to the trade off of speed.
+UDP on the other hand does not provide for any of the following; message delivery, message delivery order, built in congestion avoidance or flow control, connection state tracking. UDP PDU's are known as Datagram and is made up of four parts: Source port, destination port, length, and checksum. The checksum port is even optional depending on if were using IPv4 or IPv6 at the network layer. The case for UDP is it's speed and flexibility. The UDP protocol can be great for something like voice or video calling, where the occasional piece of dropped data leading to a sketchy glitchy call might not matter in relation to the trade off of speed.
 
 Disadvantages of UDP:
-Unreliable protocol due to the lack of reliability, no inorder delivery, and no congestion avoidance or flow contorl.
+Unreliable protocol due to the lack of reliability, no in order delivery, and no congestion avoidance or flow control.
 Advantages of UDP:
 Speed and flexibility
 
@@ -172,9 +174,9 @@ TCP establishes a connection via what's known as a Three-way Handshake and is wh
 
 The three-way handshake process looks like:
 1) Sender sends a SYN message
-2) receiver receives SYN segment, responds with SYN ACK segement
-3) sender receives SYN ACK segement, responds with ACK segement. Once ACK segment is sent, sender can immediaitely begin sending application data.
-Receiver receives ACK segement and connection is now established.
+2) receiver receives SYN segment, responds with SYN ACK segment
+3) sender receives SYN ACK segment, responds with ACK segment. Once ACK segment is sent, sender can immediately begin sending application data.
+Receiver receives ACK segment and connection is now established.
 
 -Have a broad understanding of flow control and congestion avoidance
 
@@ -183,7 +185,7 @@ TCP implements Flow control to prevent the sender from overwhelming the receiver
 TCP implements congestion avoidance by listening to the data loss feedback. If lots of messages are requiring retransmission, TCP takes this as a sign the network is congested and reduces the size of the transmission window.
 
 -(SD) Multiplexing and demultiplexing
-Multiplexing and demultiplexing provides the ability to trasnmit multiple signals over a single channel.
+Multiplexing and demultiplexing provides the ability to transmit multiple signals over a single channel.
 
 URLs
 -Be able to identify the components of a URL, including query strings
@@ -202,9 +204,9 @@ URLs are made of 5 components: `http://wwww.example.com:88/home?item=book`
 URL Encoding is done using a `%` symbol and the UTF-8 code to include the character in the url. This is done when the character is not part of the 128-character ASCII character set, or when the character being used is a reserved or unsafe ASCII character.
 
 Characters must be encoed if:
-They have no correspdoning character within the standard aSCII character set.
-The use fot he character is unsafe since it may be misinterpreted or modifed by some systems.
-The character is reserverd for special use within the URL scheme (ie: / ? : @ and &)
+They have no corresponding character within the standard aSCII character set.
+The use of the character is unsafe since it may be misinterpreted or modified by some systems.
+The character is reserved for special use within the URL scheme (ie: / ? : @ and &)
 
 HTTP and the Request/Response Cycle
 -Be able to explain what HTTP requests and responses are, and identify the components of each
