@@ -217,4 +217,211 @@ HTTP and the Request/Response Cycle
 
 Security
 -Have an understanding of various security risks that can affect HTTP, and be able to outline measures that can be used to mitigate against these risks
+
+What if someone steals my browser’s session id? What if i’m accessing a random website, can they peek into my Reddit or Facebook cookie where my session id information is stored?
+
+Secure HTTP or HTTPS is used to combat this. With HTTPS every request/response cycle is encrypted before being transported on the network.
+
+Same-Origin policy permits unrestricted interaction between resources originating from the same origin, but restricts certain interactions between resources originating from different origins.
+
+Session Hijacking One popular way of solving session hijacking is by resetting sessions. With authentication system, this means a successful login must render an old session id invalid and create a new one. Most websites implement this by ensuring the user re-authenticates when entering any sensitive area, such as charging a credit card. Another useful solution is setting an expiration time on sessions. Finally, another approach is to use HTTP across the entire app to minimize the chance that an attacker can get to the session id.
+
+Cross-Site Scripting (XSS) is a type fo attack that happens when you allow users to input HTML or JAvaScript that ends up being displayed by the site directly. For example, in a form that allows users to add comments. One way to prevent this attack is to sanitize user input, or escape all user input data when displaying it.
+
 -Be aware of the different services that TLS can provide, and have a broad understanding of each of those services
+
+############# Practice Questions ############
+
+1. **What is a network?**
+At the most basic level, a network is two devices connected in such a way that they can communicate or exchange data. A Network can rely on switches to bridge different devices.
+
+2. **What is the Internet?**
+We can imagine te internet as a vast number of these networks connected together, a network of networks.
+
+3. **Is the Internet the same thing as a network?** 
+No, as soon as we required inter-network communication we require the inclusion of a router. Routers enable inter-network comunicaiton.
+
+4. **What is WEB (world wide web)**
+The WEB is service that can be accessed via the internet. In simple terms, the WEB is a varst infomration sysmte comprised of resources which are navigable by means of a URL.
+
+5. **What is the difference between network, Internet, and WEB?**
+A network is a single network of connected devices, the internet is a network of interconnected networks, the WEB is service that can be accessed via the internet. In simple terms, the WEB is a varst infomration sysmte comprised of resources which are navigable by means of a URL.
+
+6. **What are LAN and WLAN?**
+LAN is Local Area Network, WLAN is Wireless Local Area Network.
+
+7. **What is a protocol?**
+In simple terms, we can think of a protocol as a system of rules. In relation to computer networks, a protocol is a set of rules that govern the exchange or transmission of data.
+
+Protocols act as a system of rules for network communication.
+
+8. **What is the role of protocols?** 
+The role of a protocol is to govern the exchange or transmission of data.
+
+9. **Why there are many different types of protocols?**
+Different protocols were developed to address different aspects of network communication.
+Different protocols were developed to address the same aspect of network communication but differently for a specific use case.
+
+10. **What does it mean that a protocol is stateless?**
+A stateless protocol refers to a protocol that does not retain any information about a previous request or response.
+
+11. **Explain briefly what are OCI and TCP/IP models? What is the purpose of having models like that?** 
+TCP/IP and OCP models are models of the layered system of network communications. The use of having these models is breaking down and modularizing the transmission of data for each step in the system.
+
+The TCP/IP model divides it's layers in terms of the scope of communication within each layer, while the OSI model divides the layers in terms of the functions that each layer provides. These models are usuful for gainign a broad-bursh view of how a system works as a whole, and for modularziign different levels of responsibility within that system.
+
+12. **What is PDU? What is its role?**
+A PDU (protocol data Unit) is an amout or block of data transferred over a network. Different protocols or protocol layers refer to PRUs by different names.
+Link/Data Link layer = Frame
+Internet/Network layer= Packet
+Transprot Layer = TCP segement, or UDP datagram.
+
+13. **What is Data Payload?** 
+The data payload portion of a PDU is simply the the data that we want to transport over the network.
+
+14. **What is the relationship between PDU and Data Payload?** 
+The entire PDU at one layer is set as the payload for the PDU at the layer below. For example, the payload for a TCP segement transport layer is the HTTP request at the application layer.
+
+15. **Explain How lower-level protocols work in general?**
+Protocols at one layer don't need to know anything about how a protocol at another layer is implemented in order for those protocols to interact. It can independently complete its specific communication task without information from other layers.
+
+It creates a system wherby a lower layer effectives provides a 'service' to the layer above it.
+
+16. **What is encapsulation in the context of networking?**
+Encapsulation in the context of networking is essentially hiding data from one layer by encapsulating it within a data unit of the layer below.
+
+17. **Why do we need encapsulation?** 
+Encapsulation is useful as it allows the different layers to work completely independently of each other, allowing each protocol at each layer to do it's job without context from any other layer.
+
+This seperation of layers provides a certain level of abstraction and allows us to use different protocols at a certain layer without having to worry about the layers below.
+
+18. **What are the characteristics of a physical network?** 
+The two main characteristics of a physical network are latency and bandwidth.
+
+19. **How can we as developers deals with the limitations of physical network?**
+There's really not much we can do as developpers about the limitations of the physical network. Our influence is limtied to the implementation of the application in terms of how we use the higher-level protocols.
+
+20. **What is Latency?**
+Latency is the amout of time it takes for some data to get from one point in a network to another point in a network.
+
+21. **What is** **Bandwidth?**
+Bandwidth is the amount of data that can be sent in a particular unit of time(typically a second).
+
+22. **What are** **Network 'Hops'?**
+Network hops are the number of journeys between nodes the data makes on it's journey from start point to end point. Nodes can be though of as routers that process data and forward it to the next node on the path.
+
+23. **What is the relationship between network 'Hops' and latency?** 
+Latency is the combination of time it takes for all of the hops to occur.
+
+24. **What is a switch and what is it used for?**
+25. **What is a hub and what is it used for?**
+26. **What is a modem and what it is used for?**
+27. **What is a router and what is it used for?**
+28. **What is the difference between a switch, hub, modem, and router?**
+
+29. **How does the Internet works?**
+30. **What is a MAC address and what is its role in network communication?** 
+A MAC address is a number of six two digit hexadecimal numbers. ie `00:40:96:9d:68:0a`.
+Every network-enabled device is assigned a MAC Address when it is manufactured. This address is sometimes referred to as the physical address or burned in address.
+
+31. **Give an overview of the Link/Data Layer**
+We can think fo what happens at this layer as an interface between the workings of the physical network and the more logical layers above. This layer is most concerned with the identification of devices on the physical network and moving data over the phyiscal network between the devices that comprise it.
+
+The most commonly used protocol at the link/Data link layer is the Ethernet protocol.
+
+32. **What is included in an Ethernet frame?**
+An Ethernet frame includes:
+Source and destiniation MAC addresses
+Length
+DSAP, SSAP, control
+Data payload
+frame check sequence
+
+33. **Give an overview of the Internet/Network Layer and it's role.**
+34. **What is IP?**
+35. **What is IP address?** 
+36. **What are the components of IP addresses?** 
+37. **What is a packet in computer networking?**
+38. **Why do we need both MAC addresses and IP addresses?** 
+39. **What is DNS and how does it work?**
+40. **How do port numbers and IP addresses work together?**
+41. **What is a checksum and what is it used for? How is it used?**
+42. **Give an overview of the Transport Layer.** 
+43. **What are the fundamental elements of reliable protocol?**
+44. **What is pipe-lining protocols? What are the benefits of it?**
+45. **What is a network port?**
+46. **What is a port number?**
+47. **What is a network socket?**
+48. **Is TCP connectionless? Why?**
+49. **How do sockets on the implementation level relate to the idea of protocols being connectionless or connection-oriented?** 
+50. **What are sockets on implementation and on a theoretical level?** 
+51. **What does it mean that the protocol is connection-oriented?**
+52. **What is a three-way handshake? What is it used for?**
+53. **What are the advantages and disadvantages of a Three-way handshake?** 
+54. **What are multiplexing and demultiplexing?**
+55. **How does TCP facilitate efficient data transfer?**
+56. **What is flow control? How does it work and why do we need it?**
+57. **How TCP prevents from receiver's buffer to get overloaded with data?**
+58. **What is congestion avoidance?**
+59. **What is network congestion?**
+60. **How do transport layer protocols enable communication between processes?**
+61. **Compare UDP and TCP. What are similarities, what are differences? What are pros and cons of using each one?** 
+62. **What does it mean that network reliability is engineered?**
+63. **Give an overview of the Application Layer.** 
+64. **What is HTML?**
+65. **What is a URL and what components does it have?**
+66. **What is a Query string? What it is used for?**
+67. **What URL encoding is and when it might be used for?**
+68. **Which characters have to be encoded in the URL? Why?**
+69. **What is www in the URL?** 
+70. **What is URI?**
+71. **What is the difference between scheme and protocol in URL?**
+72. **What is HTTP?**
+73. **What is the role of HTTP?**
+74. **Explain the client-server model of web interactions, and the role of HTTP as a protocol within that model**
+75. **What are HTTP requests and responses? What are the components of each?**
+76. **Describe the HTTP request/response cycle.**
+77. **What is a** s**tate in the context of the 'web'?**
+78. **What is** s**tatelessness?**
+79. **What is a stateful Web Application?**
+80. **How can we mimic a stateful application?**
+81. **What is the difference between stateful and stateless applications?**
+82. **What does it mean that HTTP is a 'stateless protocol?** 
+83. **Why HTTP makes it difficult to build a stateful application?**
+84. **How the idea that HTTP is a stateless protocol makes the web difficult to secure?** 
+85. **What is a `GET` request and how does it work?** 
+86. **How is `GET` request initiated?**
+87. **What is the HTTP response body and what do we use it for?**
+88. **What are the obligatory components of HTTP requests?** 
+89. **What are the obligatory components of HTTP response?**
+90. **Which HTTP method would you use to send sensitive information to a server? Why?**
+91. **Compare `GET` and `POST` methods.**
+92. **Describe how would you send a `GET` request to a server and what would happen at each stage.**
+93. **Describe how would you send `POST` requests to a server and what is happening at each stage.**
+94. **What is a status code? What are some of the status codes types? What is the purpose of status codes?** 
+95. **Imagine you are using an HTTP tool and you received a status code `302`. What does this status code mean and what happens if you receive a status code like that?** 
+96. **How do modern web applications 'remember' state for each client?**
+97. **What role does AJAX play in displaying dynamic content in web applications?**
+98. **Describe some of the security threats and what can be done to minimize them?**
+99. **What is the Same Origin Policy? How it is used to mitigate certain security threats?**  
+100. **What determines whether a request should use `GET` or `POST` as its HTTP method?**
+101. **What is the relationship between a scheme and a protocol in the context of a URL?**
+102. **In what ways can we pass information to the application server via the URL?**
+103. **How insecure HTTP message transfer looks like?**
+104. **What services does HTTP provide and what are the particular problems each of them aims to address?**
+105. **What is TLS Handshake?**
+106. **What is symmetric key encryption? What is it used for?**
+107. **What is asymmetric key encryption? What is it used for?**
+108. **Describe SSL/TLS encryption process.**
+109. **Describe the pros and cons of TLS Handshake**
+110. **Why do we need digital TLS/SSL certificates?** 
+111. **What is it CA hierarchy and what is its role in providing secure message transfer?**
+112. **What is Cipher Suites and what do we need it for?**
+113. **How does TLS add a security layer to HTTP?**
+114. **Compare HTTP and HTTPS.**
+115. **Does HTTPS use other protocols?** 
+116. **How do you know a website uses HTTPS?**
+117. **Give examples of some protocols that would be used when a user interacts with a banking website. What would be the role of those protocols?** 
+118. **What is server-side infrastructure? What are its basic components?**
+119. **What is a server? What is its role?** 
+120. **What are optimizations that developers can do in order to improve performance and minimize latency?**
