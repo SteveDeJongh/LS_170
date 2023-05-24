@@ -344,10 +344,10 @@ The IP (internet protocol) is the predominant protoocl used at this layer for it
 -Encapsulation of data into packets
 
 34. **What is IP?**
-IP standards for Internet Protocol and is the predominant protocol used at the internet/network layer.
+IP stands for Internet Protocol and is the predominant protocol used at the internet/network layer.
 
 35. **What is IP address?** 
-An IP address in IPv4 is an address that is logical in anture. They are not tied to a specific device, but can be assigned as required to devices as they join a network. An IPv4 IP address is 32 bits in length and divided into 4 sections of eight bits each. When converted from binary to decimal, each of those sections provides a range of numbers from 0 to 255.
+An IP address in IPv4 is an address that is logical in nature. They are not tied to a specific device, but can be assigned as required to devices as they join a network. An IPv4 IP address is 32 bits in length and divided into 4 sections of eight bits each. When converted from binary to decimal, each of those sections provides a range of numbers from 0 to 255.
 
 36. **What are the components of IP addresses?** 
 
@@ -363,28 +363,98 @@ Internet Protocol on the internet/network layer is a protocol that enables commu
 
 39. **What is DNS and how does it work?**
 40. **How do port numbers and IP addresses work together?**
+IP numbers address to a device on a network, while port numbers assign the PDU to a specfici application running on that host.
+Together, they form a socket.
+
 41. **What is a checksum and what is it used for? How is it used?**
+Checksum data as part of the header or trailer is used to test that the data transported hasn't become corrupt during it's journey.
+The checksum procides error detection.
+
 42. **Give an overview of the Transport Layer.** 
+The transport layer can be thought of as the concierge of an appartment building. Using port numbers, it directs the appropriate internet layer traffic to the correct application running on the host.
+
 43. **What are the fundamental elements of reliable protocol?**
+The fundamental elements required for relaible data transfer are:
+In-order dleivery, error detection, handling data loss, and handling duplication.
+
 44. **What is pipe-lining protocols? What are the benefits of it?**
+Pipelining increases effeciency of data transfer.
+Pipelining is the idea of sending multiple messages one after the other without waitinf for acknowledgements.
+The advantage of a pipelined approach is its more efficient use of available bandwitdth. Instead of wasting lots of time just waiting for acknowledgements, more time is spent actually transmitting data.
+
 45. **What is a network port?**
+
+
 46. **What is a port number?**
+In simple terms a port is an identifier for a specific process running on a host. The identifier is an integer in the range of 0-65535.
+
 47. **What is a network socket?**
+At a conceptul level a socket is an abstration for an endpoint used for inter-process communication. At in implementation level it can be used to refer to different specific things:
+-UNIX socket: a mechanism for communication between local processses running on the same machine
+-Internet sockets (Such as TCP/IP socket): a mechanism for inter-process communication between networked processes.
+
 48. **Is TCP connectionless? Why?**
+TCP is a connection ortiented protocol. IT does not start sending application data until a connection has been established.
+
 49. **How do sockets on the implementation level relate to the idea of protocols being connectionless or connection-oriented?** 
+In a connectionless system, we could assign 1 port to a particular process running on an that machine, and listen for all incoming traffic directed to that port.
+In a connection based system, the receiving port would still listen for all incoming traffic to that port, but would then instantiate new socket objects for each chunk of data for each individual conversation. It would do this by ensuring that all 4 pieces of data would match, local ip and port number, along with the IP and port number of the process/host which sent the message.
+
 50. **What are sockets on implementation and on a theoretical level?** 
 51. **What does it mean that the protocol is connection-oriented?**
+When a protocol is connection ortiented, it means that we want to establish a realiable communication channel over which to send data before we start the transmission of data.
+
 52. **What is a three-way handshake? What is it used for?**
+The three-way handshake is the process which TCP uses to establish a connection between the sender and the receiver.
+
 53. **What are the advantages and disadvantages of a Three-way handshake?** 
+The advantages of the three way handshake is that it establishes a reliable communication channel.
+
+The disadvantages is performance. The three-way handshake requires a round trip of latency before the start of transmission of data.
+
 54. **What are multiplexing and demultiplexing?**
+Multiplexing and demultilexing is a genreral concept that can be applied in lots fo contexts within communications networks and is the general idea of being able to enable multiple connections while only using a single channel.
+
+Multiplexing and demultiplexing in the context of the transportation layer is that the inclusion of port numbers in the PDU for this layer allows for multiple applications to communicate over the same physical connection at the same time.
+
 55. **How does TCP facilitate efficient data transfer?**
+In order to help facilitate efficient data transfer once a conenction is established, TCP provides mechanisms for flow control and congestion avoidance.
+
 56. **What is flow control? How does it work and why do we need it?**
+Flow control is a mechanism to prevent the sender from overwhelming the reveiver with too much data at once. It is required as the receiver will only be able to process a certain amount fo data in a particular time-frame due to buffer sizes.
+
 57. **How TCP prevents from receiver's buffer to get overloaded with data?**
+In order to not overwhelm the receivers buffer, each side of the connection can let the other side of the connection know how much data they are willing to accept via the WIDNOW field of the TCP header. This number can change throughout the course of a connection.
+
 58. **What is congestion avoidance?**
+Congestion avoidance is changing how much data is sent on the network at a particular time due to how much data is being lost. TCP reduces the amount of data it sends out based of data loss feedback and uses this data to detect and avoid network congestion by reducing TCP segment size.
+
+
 59. **What is network congestion?**
+Network congestions is a situation that occurs when there is more data being trasnmittied ont henetwork than there is network capacity to process and transmit the data.
+
+Congestion can be thought of as gridlock on a road network. However, instead of cars getting stuck standing still, excess cars are lost al together.
+
 60. **How do transport layer protocols enable communication between processes?**
+Transport layers using source and destination port numbers to direct the data to the correct processes on the host.
+
 61. **Compare UDP and TCP. What are similarities, what are differences? What are pros and cons of using each one?** 
+UDP and TCP are both transport layer protocols. TCP is a connection oriented protocol, while UDP is connectionless.
+
+TCP and UDP both provide for data checking, and multiplexing.
+
+However unlike TCP, UDP does not provide for any of the following:
+No guarantee of message delivery
+No guarantee of message delivery order
+No built in congestion avoidance or flow-control
+No connection state tracking
+
+TCP provides for reliable transportation of data at the cost of speed.
+UDP provides for speed and flexibility, at teh cost of reliability.
+
 62. **What does it mean that network reliability is engineered?**
+This means that network reliability is achieved through protocols that implement error checking, in order delivery, message delviery, etc. These are not underlying characteristics of the physical network, but the work of protocols at higher levels.
+
 63. **Give an overview of the Application Layer.** 
 64. **What is HTML?**
 65. **What is a URL and what components does it have?**
