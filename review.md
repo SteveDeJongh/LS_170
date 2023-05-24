@@ -318,7 +318,6 @@ Latency is the combination of time it takes for all of the hops to occur.
 26. **What is a modem and what it is used for?**
 27. **What is a router and what is it used for?**
 28. **What is the difference between a switch, hub, modem, and router?**
-
 29. **How does the Internet works?**
 30. **What is a MAC address and what is its role in network communication?** 
 A MAC address is a number of six two digit hexadecimal numbers. ie `00:40:96:9d:68:0a`.
@@ -338,11 +337,30 @@ Data payload
 frame check sequence
 
 33. **Give an overview of the Internet/Network Layer and it's role.**
+The primary function fo the protocols at this layer is to facilitate communication between hosts (e.g. computer) on different networks.
+
+The IP (internet protocol) is the predominant protoocl used at this layer for itner-network communication. There are two version IPv4 and IPv6 currently in use. The two systems primary features are:
+-Routing capabiliy via IP addressing
+-Encapsulation of data into packets
+
 34. **What is IP?**
+IP standards for Internet Protocol and is the predominant protocol used at the internet/network layer.
+
 35. **What is IP address?** 
+An IP address in IPv4 is an address that is logical in anture. They are not tied to a specific device, but can be assigned as required to devices as they join a network. An IPv4 IP address is 32 bits in length and divided into 4 sections of eight bits each. When converted from binary to decimal, each of those sections provides a range of numbers from 0 to 255.
+
 36. **What are the components of IP addresses?** 
+
+
 37. **What is a packet in computer networking?**
+A packet is the PDU for the IP Protocol at the Internet/network layer.
+
 38. **Why do we need both MAC addresses and IP addresses?** 
+MAC Addresses are concerned with connecting devices on the same network, IP addresses are concerned with communication between two networked devices anywhere in the world.
+
+Ethernet on the physical layer is a protocol that enables communication between devices on a local network using MAC addresses and it's PDU is called a frame.
+Internet Protocol on the internet/network layer is a protocol that enables communication between networks using IP addresses and it's PDU is called a packet.
+
 39. **What is DNS and how does it work?**
 40. **How do port numbers and IP addresses work together?**
 41. **What is a checksum and what is it used for? How is it used?**
