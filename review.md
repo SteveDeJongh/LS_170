@@ -517,6 +517,8 @@ HTTP Requests consist of; request line, headers, and a optional message body.
 HTTP Responses consist of; status lines, optional headers, and an optional message body.
 
 76. **Describe the HTTP request/response cycle.**
+The request response cycle occurs every time we refresh or try to get a resource from the web. The browser or http tool places a request with a request line, to a specific server. The server then responds with a status line, headers, and a request body of the data that is being requested.
+
 77. **What is a state in the context of the 'web'?**
 78. **What is statelessness?**
 79. **What is a stateful Web Application?**
