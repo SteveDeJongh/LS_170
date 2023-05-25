@@ -350,7 +350,11 @@ IP stands for Internet Protocol and is the predominant protocol used at the inte
 An IP address in IPv4 is an address that is logical in nature. They are not tied to a specific device, but can be assigned as required to devices as they join a network. An IPv4 IP address is 32 bits in length and divided into 4 sections of eight bits each. When converted from binary to decimal, each of those sections provides a range of numbers from 0 to 255.
 
 36. **What are the components of IP addresses?** 
-
+IPv4 addresses can be broken down into:
+Country/network
+Region/Network
+Subnetwork
+Device
 
 37. **What is a packet in computer networking?**
 A packet is the PDU for the IP Protocol at the Internet/network layer.
@@ -520,6 +524,8 @@ HTTP Responses consist of; status lines, optional headers, and an optional messa
 The request response cycle occurs every time we refresh or try to get a resource from the web. The browser or http tool places a request with a request line, to a specific server. The server then responds with a status line, headers, and a request body of the data that is being requested.
 
 77. **What is a state in the context of the 'web'?**
+In the context of the web, state could reference the users log in status, prefilled information on a form, number of likes a post has, etc.
+
 78. **What is statelessness?**
 Statelessness in the context of a web protocol refers to how no lingering information is stored on the server regarding the past interactions of a client.
 
@@ -602,6 +608,8 @@ To pass information to the server via the URL, we can use the path and parameter
 
 103. **How insecure HTTP message transfer looks like?**
 104. **What services does HTTP provide and what are the particular problems each of them aims to address?**
+HTTP gives users a way to interact with a web resources via its request-response cycle.
+
 105. **What is TLS Handshake?**
 The TLS(transport layer security) handshake is what TLS uses to set up an encrypted connection.
 
@@ -653,6 +661,9 @@ HTTPS using TLS as an additional protocol for safe encrypted data transfer and t
 https will be visible in the URL, and will also required the use of site cerificates which can be viewed in most browsers.
 
 117. **Give examples of some protocols that would be used when a user interacts with a banking website. What would be the role of those protocols?** 
+HTTPS would be used to make the request to the server and have the server issue a response.
+TLS would also be used to have an encrypted channel of communication between client and server, and authenticate that the server is actually the bank i'm trying to reach, lastly TLS would also be used to ensure that the data transferred has not been tampered with.
+
 118. **What is server-side infrastructure? What are its basic components?**
 The basic components of server-side infrastructure would be; web-server, application server, and a data store.
 The web server is typically a server that responds to requests for static assets; files, images, css, javascript, etc.
