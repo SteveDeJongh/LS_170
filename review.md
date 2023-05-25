@@ -625,7 +625,9 @@ The steps are:
   -As part of the communiaction which includes ClientKeyExchange message, the client also sends a ChangeCipherSpec flag, which tells the server that encrypted communication should now start using the symmetric keys. Additionally this communication has a Finished flag to idnicate teh cleint is done with the TLS handshake.
 
 109. **Describe the pros and cons of TLS Handshake**
+The pros of the TLS handshake is that it enable encrypted transfer of data, secure connection with the server, and verifies the server is who they say they are.
 
+The downsides are performance, as the TLS handshake requires some roundtrips of latency in order to become established.
 
 110. **Why do we need digital TLS/SSL certificates?**
 TLS certificates are used to verify that the server we are communicating with actually is the intended server of the site we are trying to reach. 
@@ -639,10 +641,36 @@ A cipher suite is a suite or set of ciphers. A cipher is a cryptographic algorit
 A cipher suite is used by TLS for different aspects of establishing and maintaining a secure connection.
 
 113. **How does TLS add a security layer to HTTP?**
+TLS adds a security layer to HTTP by establishing a securing connection for data transfer.
+
 114. **Compare HTTP and HTTPS.**
+The biggest difference between HTTP and HTTPS is that HTTP does not use encryption to protect data between client and server.
+
 115. **Does HTTPS use other protocols?** 
+HTTPS using TLS as an additional protocol for safe encrypted data transfer and the establishment of secure connections betwene client and server.
+
 116. **How do you know a website uses HTTPS?**
+https will be visible in the URL, and will also required the use of site cerificates which can be viewed in most browsers.
+
 117. **Give examples of some protocols that would be used when a user interacts with a banking website. What would be the role of those protocols?** 
 118. **What is server-side infrastructure? What are its basic components?**
+The basic components of server-side infrastructure would be; web-server, application server, and a data store.
+The web server is typically a server that responds to requests for static assets; files, images, css, javascript, etc.
+THe application server, is typically where application and business logic resides, and is where more complicated requests are handled.
+The data store, is often where the application layer will go to consult persistent data like a relational database, to retrive or create data.
+
 119. **What is a server? What is its role?** 
+A server is essentially a program or bit of software that someone wrote and their purpose is to serve webpages.
+
 120. **What are optimizations that developers can do in order to improve performance and minimize latency?**
+The simplest of techniques is to consider whether every resource or depency that your application uses is strictly necessary.
+
+Another technique for improivng profmrance is data compression.
+
+Reusing TCP Connections.
+
+DNS Optimizations
+As every request to connec to a domain will involve a DNS lookup, this area is a prime candidate for optimization. The first way to improve this is by reducing the number of host names that need to be resolved. Another method is download any external resources and host them locally on the server that is hosting the web app, a third avenue is to use a faster DNS provider.
+
+Caching
+What we mean by caching for optimization is server-side. Caches are a seperate component from the host server and are essentially short-term memory banks. What they do is store content that was recently accessed by a user so that next time that content is request it can be delivered more quickly.
