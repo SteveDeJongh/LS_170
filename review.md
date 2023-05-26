@@ -502,7 +502,7 @@ The `www` in a url stands for world wide web and is a service that can be access
 A URI is a Uniform Resource Identifier, which specifies how resources are located.
 
 71. **What is the difference between scheme and protocol in URL?**
-The scheme is what tells the web cleint how to access the resource. It's what comes before the `://` in a URL. The connection between the scheme and the protocol is that the scheme can indicate which protocol should be used to access the resource.
+The scheme is what tells the web client how to access the resource. It's what comes before the `://` in a URL. The connection between the scheme and the protocol is that the scheme can indicate which protocol should be used to access the resource.
 
 72. **What is HTTP?**
 HTTP is Hypertext ransfer protocol and is the set of rules which provide unformity to the way resources on the web are transferred between applications.
@@ -527,7 +527,7 @@ The request response cycle occurs every time we refresh or try to get a resource
 In the context of the web, state could reference the users log in status, prefilled information on a form, number of likes a post has, etc.
 
 78. **What is statelessness?**
-Statelessness in the context of a web protocol refers to how no lingering information is stored on the server regarding the past interactions of a client.
+Statelessness in the context of a web protocol refers to how no lingering information is stored, or connection mainted with, on the server regarding the past interactions of a client.
 
 79. **What is a stateful Web Application?**
 A stateful web application is an application in which through the use of cookies, session ID's or AJAX, the application appears to remember something like if a user is logged in.
@@ -607,6 +607,8 @@ The scheme identifies which protocol should be used.
 To pass information to the server via the URL, we can use the path and parameters. Query are the key value pairs that are seperated by `=`, joined by `&`, and begin after the `?` in a url.
 
 103. **How insecure HTTP message transfer looks like?**
+HTTP requests and responses are sent as plain text, with no encryption to make the data transfer secure.
+
 104. **What services does HTTP provide and what are the particular problems each of them aims to address?**
 HTTP gives users a way to interact with a web resources via its request-response cycle.
 
