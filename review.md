@@ -613,7 +613,7 @@ HTTP requests and responses are sent as plain text, with no encryption to make t
 HTTP gives users a way to interact with a web resources via its request-response cycle.
 
 105. **What is TLS Handshake?**
-The TLS(transport layer security) handshake is what TLS uses to set up an encrypted connection.
+The TLS(transport layer security) handshake is what TLS uses to set up an encrypted connection. It is a 4 step process where client and server exchange messages to enable encrypted communication using symmetric keys.
 
 106. **What is symmetric key encryption? What is it used for?**
 Symmetric key encryption is when both sender and receiver of a ciphertext message have a copy of the same key, which is responsible for both encrypting and decrypting the message.
@@ -624,20 +624,22 @@ Asymmetric key encryption is when we use a public key and a private key. The pub
 108. **Describe SSL/TLS encryption process.**
 The TLS encryption process revolves around the TLS handshake.
 
-Steps of the TLs Handshake:
--ClientHello message sent immediately after the TCP ACK message. This contain maximum version of TLS  protocol, and a list of Cipher Suites that the client is able to use.
--Server responds with ServerHello, which sets the protocol version and cipher suite. As part of the message the server also sends its certificate wihch contains its public key, and a ServerHelloDone marker.
--Once client receives ServerHelloDone marker, it will initiate the key exchange process that ultimately enables both the client and server to securily obtain a copy of the symmetric encryption key.
+Steps of the TLS Handshake:
+1. `ClientHello` message sent immediately after the TCP ACK message. This contains the maximum version of TLS protocol they support, and a list of Cipher Suites that the client is able to use.
+2. Server responds with `ServerHello`, which sets the TSL protocol version and cipher suite. As part of the message the server also sends its certificate (which contains its public key), and a ServerHelloDone marker.
+3. Once client receives the `ServerHelloDone` marker, it will initiate the key exchange process that ultimately enables both the client and server to security obtain a copy of the symmetric encryption key.
 The steps are:
-  -Client generates a 'pre-master secret' encrypts it using the server's public key, send to server.
-  -Server receives the encrypted pre master secret, and decrypts it using its own private key.
-  -Both client and server will use the 'pre-master secret' along with some other pre-agreed parameters to generate the same symmetric key.
-  -As part of the communiaction which includes ClientKeyExchange message, the client also sends a ChangeCipherSpec flag, which tells the server that encrypted communication should now start using the symmetric keys. Additionally this communication has a Finished flag to idnicate teh cleint is done with the TLS handshake.
+  -Client generates a `pre-master secret` encrypts it using the server's public key, send to server.
+  -Server receives the encrypted `pre-master secret`, and decrypts it using its own private key.
+  -Both client and server will use the `pre-master secret` along with some other pre-agreed parameters to generate the same symmetric key.
+  -As part of the communication which includes `ClientKeyExchange` message, the client also sends a `ChangeCipherSpec` flag, which tells the server that encrypted communication should now start using the symmetric keys. Additionally this communication has a `Finished` flag to indicate the client is done with the TLS handshake.
+
+4. The server also sends a message with `ChangeCipherSpec` and `Finished` flags. The client and server can now begin secure communication using the symmetric key.
 
 109. **Describe the pros and cons of TLS Handshake**
 The pros of the TLS handshake is that it enable encrypted transfer of data, secure connection with the server, and verifies the server is who they say they are.
 
-The downsides are performance, as the TLS handshake requires some roundtrips of latency in order to become established.
+The downsides are performance, as the TLS handshake requires 2 roundtrips of latency in order to become established.
 
 110. **Why do we need digital TLS/SSL certificates?**
 TLS certificates are used to verify that the server we are communicating with actually is the intended server of the site we are trying to reach. 
