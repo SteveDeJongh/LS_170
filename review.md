@@ -689,3 +689,5 @@ As every request to connec to a domain will involve a DNS lookup, this area is a
 
 Caching
 What we mean by caching for optimization is server-side. Caches are a seperate component from the host server and are essentially short-term memory banks. What they do is store content that was recently accessed by a user so that next time that content is request it can be delivered more quickly.
+
+##### LS 170 SPOT Study Session #####
