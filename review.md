@@ -692,4 +692,4 @@ What we mean by caching for optimization is server-side. Caches are a seperate c
 
 ##### LS 170 SPOT Study Session #####
 
-Test revisions.
+Test revisions, additional review, notes in notion.
