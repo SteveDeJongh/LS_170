@@ -357,7 +357,7 @@ Subnetwork
 Device
 
 37. **What is a packet in computer networking?**
-A packet is the PDU for the IP Protocol at the Internet/network layer.
+A packet is the PDU for the IP Protocol at the Internet/network layer. Key headers in a packet are the Source address and destination address fields, each representing an IP address.
 
 38. **Why do we need both MAC addresses and IP addresses?** 
 MAC Addresses are concerned with connecting devices on the same network, IP addresses are concerned with communication between two networked devices anywhere in the world.
@@ -367,6 +367,8 @@ Internet Protocol on the internet/network layer is a protocol that enables commu
 
 39. **What is DNS and how does it work?**
 DNS is the doman name system, and is a distributed database which maps a domain name such as www.whatever.com to the an IP Address.
+
+A Domain name (web address ie www.google.ca) is just an alias for the servers IP address where the resource is located. Every time we enter a new domain name for an address that we have not already looked up, we need to discover the IP address for that respective address. The first step is to check with our ISP and it's DNS server. If that DNS server does not have that address logged, it will then forward the request up the chain of DNS servers until it finds the address of the given domain. After this initial hunt for the IP address, the browser will then cache that domain/ip information and use that cached information to access the site on the next request.
 
 40. **How do port numbers and IP addresses work together?**
 IP numbers address to a device on a network, while port numbers assign the PDU to a specfici application running on that host.
