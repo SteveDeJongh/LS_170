@@ -274,27 +274,29 @@ Stateless procotols treat each interaction between sender and receiver as a bran
 11. **Explain briefly what are OCI and TCP/IP models? What is the purpose of having models like that?** 
 TCP/IP and OCP models are models of the layered system of network communications. The use of having these models is breaking down and modularizing the transmission of data for each step in the system.
 
-The TCP/IP model divides it's layers in terms of the scope of communication within each layer, while the OSI model divides the layers in terms of the functions that each layer provides. These models are usuful for gainign a broad-bursh view of how a system works as a whole, and for modularziign different levels of responsibility within that system.
+The TCP/IP model divides it's layers in terms of the scope of communication within each layer, while the OSI model divides the layers in terms of the functions that each layer provides. These models are useful for gaining a bigger picture view of how the networking system works as a whole, and for breaking down different levels of responsibility within that system.
 
 12. **What is PDU? What is its role?**
 A PDU (protocol data Unit) is an amout or block of data transferred over a network. Different protocols or protocol layers refer to PRUs by different names.
-Link/Data Link layer = Frame
-Internet/Network layer= Packet
-Transprot Layer = TCP segement, or UDP datagram.
+Physical Layer = No PDU as the data is transported as bits along the physical medium.
+Link/Data Link layer = Ethernet Frame
+Internet/Network layer= IP Packet
+Transport Layer = TCP segement, or UDP datagram.
+Application Layer = HTTP Request/Response
 
 13. **What is Data Payload?** 
-The data payload portion of a PDU is simply the the data that we want to transport over the network.
+The data payload portion of a PDU is simply the actual data that we want to transport over the network. The payload of one layer is tpyically the entire PDU of the layer above, this is how network communication enables encapsulation and abstracts one layer of communication from another.
 
 14. **What is the relationship between PDU and Data Payload?** 
-The entire PDU at one layer is set as the payload for the PDU at the layer below. For example, the payload for a TCP segement transport layer is the HTTP request at the application layer.
+The entire PDU at one layer is set as the payload for the PDU at the layer below. For example, the payload for a TCP segment at transport layer is the HTTP request at the application layer, and the payload for a packet at the internet layer would be the TCP segement.
 
 15. **Explain How lower-level protocols work in general?**
 Protocols at one layer don't need to know anything about how a protocol at another layer is implemented in order for those protocols to interact. It can independently complete its specific communication task without information from other layers.
 
-It creates a system wherby a lower layer effectives provides a 'service' to the layer above it.
+It creates a system whereby a lower layer effectively provides a 'service' to the layer above it.
 
 16. **What is encapsulation in the context of networking?**
-Encapsulation in the context of networking is essentially hiding data from one layer by encapsulating it within a data unit of the layer below.
+Encapsulation in the context of networking is essentially hiding data from one layer above by encapsulating it within a data unit of the layer below as payload.
 
 17. **Why do we need encapsulation?** 
 Encapsulation is useful as it allows the different layers to work completely independently of each other, allowing each protocol at each layer to do it's job without context from any other layer.
@@ -302,7 +304,7 @@ Encapsulation is useful as it allows the different layers to work completely ind
 This seperation of layers provides a certain level of abstraction and allows us to use different protocols at a certain layer without having to worry about the layers below.
 
 18. **What are the characteristics of a physical network?** 
-The two main characteristics of a physical network are latency and bandwidth.
+The two main characteristics of a physical network are latency and bandwidth. Latency is the measure of time (in milliseconds) it takes for some chunk of data to get from a point on a network to some other point. Bandwidtch is the amount of data that can be sent in a particular chunk of time, often a second, and is measure in bits.
 
 19. **How can we as developers deals with the limitations of physical network?**
 There's really not much we can do as developpers about the limitations of the physical network. Our influence is limtied to the implementation of the application in terms of how we use the higher-level protocols.
@@ -316,8 +318,12 @@ Bandwidth is the amount of data that can be sent in a particular unit of time(ty
 22. **What are** **Network 'Hops'?**
 Network hops are the number of journeys between nodes the data makes on it's journey from start point to end point. Nodes can be though of as routers that process data and forward it to the next node on the path.
 
+Data will make many stops and come accross many intersections on it's journey from starting location to ending location. Each of these journeys between intersections can be thought of as a hop, where each intersection is a node (router) that directs the data on it's next journey to it's end destination.
+
 23. **What is the relationship between network 'Hops' and latency?** 
 Latency is the combination of time it takes for all of the hops to occur.
+
+Latency is the total combination of all the time each individual hop takes. Latency can sometimes be reduced by improving network routing and reducing redundant hops, therefor decreasing the time spent to process and push the data back onto the network for travel.
 
 24. **What is a switch and what is it used for?**
 25. **What is a hub and what is it used for?**
@@ -325,6 +331,8 @@ Latency is the combination of time it takes for all of the hops to occur.
 27. **What is a router and what is it used for?**
 28. **What is the difference between a switch, hub, modem, and router?**
 29. **How does the Internet works?**
+The internet works by being a large interconnected network of devices. When we want to access a resource at a particular IP address, the request data works it's way down the various layered protocols from our application to the physical layer, makes it's various hops through routers to it's final server destination where the requested resource is stored. This then prompt the server to issue a response, which works it's way back through the networks various protocols.
+
 30. **What is a MAC address and what is its role in network communication?** 
 A MAC address is a number of six two digit hexadecimal numbers. ie `00:40:96:9d:68:0a`.
 Every network-enabled device is assigned a MAC Address when it is manufactured. This address is sometimes referred to as the physical address or burned in address.
@@ -332,7 +340,7 @@ Every network-enabled device is assigned a MAC Address when it is manufactured. 
 31. **Give an overview of the Link/Data Layer**
 We can think fo what happens at this layer as an interface between the workings of the physical network and the more logical layers above. This layer is most concerned with the identification of devices on the physical network and moving data over the phyiscal network between the devices that comprise it.
 
-The most commonly used protocol at the link/Data link layer is the Ethernet protocol.
+The most commonly used protocol at the link/Data link layer is the Ethernet protocol, with uses frames as a PDU with fields for source and destination MAC addresses, identifying the particular device on the network to send the data to. Depeding on the model being used, the layer above is the Interne tor Network layer, while the layer below is the Physical layer in the OSI model.
 
 32. **What is included in an Ethernet frame?**
 An Ethernet frame includes:
@@ -343,7 +351,7 @@ Data payload
 frame check sequence
 
 33. **Give an overview of the Internet/Network Layer and it's role.**
-The primary function fo the protocols at this layer is to facilitate communication between hosts (e.g. computer) on different networks.
+The primary function of the protocols at this layer is to facilitate communication between hosts (e.g. computer) on different networks. The IP protocol uses IP addresses, which are created in a logical manner and allowing network devices to direct the data in the right general direction even if it does not know of the exact location of the final address.
 
 The IP (internet protocol) is the predominant protoocl used at this layer for itner-network communication. There are two version IPv4 and IPv6 currently in use. The two systems primary features are:
 -Routing capabiliy via IP addressing
@@ -353,7 +361,9 @@ The IP (internet protocol) is the predominant protoocl used at this layer for it
 IP stands for Internet Protocol and is the predominant protocol used at the internet/network layer.
 
 35. **What is IP address?** 
-An IP address in IPv4 is an address that is logical in nature. They are not tied to a specific device, but can be assigned as required to devices as they join a network. An IPv4 IP address is 32 bits in length and divided into 4 sections of eight bits each. When converted from binary to decimal, each of those sections provides a range of numbers from 0 to 255.
+An IP address using the IPv4 protocol is an address that is logical in nature. They are not tied to a specific device, but can be assigned as required to devices as they join a network. An IPv4 IP address is 32 bits in length and divided into 4 sections of eight bits each. When converted from binary to decimal, each of those sections provides a range of numbers from 0 to 255.
+
+An IP address is a number constructed of a series of 4 `.` separated 8 bit numbers that are assigned to an individual network-compatible device as it connects to a network. These IP addresses are used to enable communcation between networks, allowing a device connected to some network in New York to connect to another device connected to to a different network elsewhere, say in Vancouver. The reason why IP addresses assist in the inter-network communication vs a MAC address is because the IP addresses are made up in a logical manner, with the series of 8 bit numbers gradually pointing towards a more specific address as we work from left to right.
 
 36. **What are the components of IP addresses?** 
 IPv4 addresses can be broken down into:
