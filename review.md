@@ -233,37 +233,43 @@ Cross-Site Scripting (XSS) is a type fo attack that happens when you allow users
 ############# Practice Questions ############
 
 1. **What is a network?**
-At the most basic level, a network is two devices connected in such a way that they can communicate or exchange data. A Network can rely on switches to bridge different devices.
+At the most basic level, a network is two devices connected in such a way that they can communicate or exchange data. A Network can rely on a hub or switches to bridge different devices or partition parts of the network, or have all devices connected on a single wire.
 
 2. **What is the Internet?**
 We can imagine te internet as a vast number of these networks connected together, a network of networks.
 
 3. **Is the Internet the same thing as a network?** 
-No, as soon as we required inter-network communication we require the inclusion of a router. Routers enable inter-network comunicaiton.
+No, as soon as we require inter-network communication we require the inclusion of a router. Routers enable inter-network comunication, and it's the connection of different routers and networks that makes up the internet, the infrastructure allowing inter-network communication.
 
 4. **What is WEB (world wide web)**
-The WEB is service that can be accessed via the internet. In simple terms, the WEB is a varst infomration sysmte comprised of resources which are navigable by means of a URL.
+The WEB is service that can be accessed via the internet. In simple terms, the WEB is a vast information system comprised of resources which are navigable by means of a URL. We can think of the web as a library that is hosted on the internet, with individual webpages being the books that we can check out.
 
 5. **What is the difference between network, Internet, and WEB?**
-A network is a single network of connected devices, the internet is a network of interconnected networks, the WEB is service that can be accessed via the internet. In simple terms, the WEB is a varst infomration sysmte comprised of resources which are navigable by means of a URL.
+A network is a single network of connected devices, the internet is a network of interconnected networks, the WEB is a service that can be accessed via the internet. In simple terms, the WEB is a vast information system comprised of resources which are navigable by means of a URL.
 
 6. **What are LAN and WLAN?**
-LAN is Local Area Network, WLAN is Wireless Local Area Network.
+LAN is Local Area Network, WLAN is Wireless Local Area Network. WAN is a Wide access network, and can be thought of as the networks at the core of the internet.
 
 7. **What is a protocol?**
-In simple terms, we can think of a protocol as a system of rules. In relation to computer networks, a protocol is a set of rules that govern the exchange or transmission of data.
+In simple terms, we can think of a protocol as a set of rules. In relation to computer networks, a protocol is a set of rules that govern the exchange or transmission of data.
 
-Protocols act as a system of rules for network communication.
+Protocols act as a system of rules for network communication, and allows devices of all makes and models to follow a set of guidelines to in order to be able to communicate with other devices from other makes and models.
 
 8. **What is the role of protocols?** 
 The role of a protocol is to govern the exchange or transmission of data.
+
+A Protocol is used to set the guidelines for communication and data transmission at a particular layer of a network.
 
 9. **Why there are many different types of protocols?**
 Different protocols were developed to address different aspects of network communication.
 Different protocols were developed to address the same aspect of network communication but differently for a specific use case.
 
+There's a need for so manny different protocols because of the different layers and styles of communication they need to deal with. For example, we can have mutliple different ways and rules we wish to transport data at the internet layer, and at the application layer, etc. For instance, some applications may care about missing data, while others might not be concerned with it and instead prefer a protocol that is the asbolute fastest for data transmission.
+
 10. **What does it mean that a protocol is stateless?**
 A stateless protocol refers to a protocol that does not retain any information about a previous request or response.
+
+Stateless procotols treat each interaction between sender and receiver as a brand new request, with no recollection of past or future interactions. On each request, all the sender and receiver information needs to be transmitted. 
 
 11. **Explain briefly what are OCI and TCP/IP models? What is the purpose of having models like that?** 
 TCP/IP and OCP models are models of the layered system of network communications. The use of having these models is breaking down and modularizing the transmission of data for each step in the system.
