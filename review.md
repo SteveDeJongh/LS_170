@@ -376,7 +376,9 @@ Device
 A packet is the PDU for the IP Protocol at the Internet/network layer. Key headers in a packet are the Source address and destination address fields, each representing an IP address.
 
 38. **Why do we need both MAC addresses and IP addresses?** 
-MAC Addresses are concerned with connecting devices on the same network, IP addresses are concerned with communication between two networked devices anywhere in the world.
+MAC Addresses are concerned with connecting devices on the same network, IP addresses are concerned with communication between two networked devices anywhere in the world. A MAC address would used in the internet context for direction on each hop, with a new destination and source address being used for each hop. The MAC address would be retrive from that devices ARP table, linking destination MAC address to IP ranges. An IP address is used to direct the data from starting location to end location, providing the network device with a logical path to take.
+
+In another example, an IP address can be thought of as street address, with a MAC address being the next town over that's heading in the right direction. Say we wanted to travel from an ip address in Vancouver to an ip address in San Fransisco. Leaving Vancouver, the vancouver terminal might not know where the destination San franscisco IP address is, but it knows that the general direction is south. The vancouver terminal will then look for the logical next stop going south (or that fits that IP range) and send it there. Let's say Seattle. This would continue until it gets to a general san fransisco router, where it has more infomration on the local streets and neighbourhoods and would have the required information to point it towards a neighbourhood, street, and house.
 
 Ethernet on the physical layer is a protocol that enables communication between devices on a local network using MAC addresses and it's PDU is called a frame.
 Internet Protocol on the internet/network layer is a protocol that enables communication between networks using IP addresses and it's PDU is called a packet.
@@ -387,24 +389,30 @@ DNS is the doman name system, and is a distributed database which maps a domain 
 A Domain name (web address ie www.google.ca) is just an alias for the servers IP address where the resource is located. Every time we enter a new domain name for an address that we have not already looked up, we need to discover the IP address for that respective address. The first step is to check with our ISP and it's DNS server. If that DNS server does not have that address logged, it will then forward the request up the chain of DNS servers until it finds the address of the given domain. After this initial hunt for the IP address, the browser will then cache that domain/ip information and use that cached information to access the site on the next request.
 
 40. **How do port numbers and IP addresses work together?**
-IP numbers address to a device on a network, while port numbers assign the PDU to a specfici application running on that host.
-Together, they form a socket.
+IP numbers address to a device on a network, while port numbers assign the PDU to a specfic application(chrome tab, chat window, email client, etc) running on that host.
+Together, they form a socket or a socket object. 
 
 41. **What is a checksum and what is it used for? How is it used?**
 Checksum data as part of the header or trailer is used to test that the data transported hasn't become corrupt during it's journey.
-The checksum procides error detection.
+The checksum procides error detection, and ensures that what was orginally sent by the sender is what was recevied by the receiving party.
 
 42. **Give an overview of the Transport Layer.** 
 The transport layer can be thought of as the concierge of an appartment building. Using port numbers, it directs the appropriate internet layer traffic to the correct application running on the host.
+
+THe transport layer can be thought of as the director of traffic for the individual computer or device. This director digests the incoming traffic, deciphers what application the information is for, and sends it to the correct application.
 
 43. **What are the fundamental elements of reliable protocol?**
 The fundamental elements required for relaible data transfer are:
 In-order dleivery, error detection, handling data loss, and handling duplication.
 
+In order for a protocol to be deemed reliable, we need to ensure that the data is; received on the receiving end, received in order, retransmitted if required, and remove duplicated information.
+
 44. **What is pipe-lining protocols? What are the benefits of it?**
 Pipelining increases effeciency of data transfer.
-Pipelining is the idea of sending multiple messages one after the other without waitinf for acknowledgements.
+Pipelining is the idea of sending multiple messages one after the other without waiting for acknowledgements.
 The advantage of a pipelined approach is its more efficient use of available bandwitdth. Instead of wasting lots of time just waiting for acknowledgements, more time is spent actually transmitting data.
+
+Pipelining is sending out a group of messages one after another, without delaying the transmission of data by waiting for a receipt acknowledgement first. This approach increases the use of available bandwidth, decreasing the length of time it may take to send a full file or large piece of data.
 
 45. **What is a network port?**
 
@@ -418,7 +426,7 @@ At a conceptul level a socket is an abstration for an endpoint used for inter-pr
 -Internet sockets (Such as TCP/IP socket): a mechanism for inter-process communication between networked processes.
 
 48. **Is TCP connectionless? Why?**
-TCP is a connection ortiented protocol. IT does not start sending application data until a connection has been established.
+TCP is a connection ortiented protocol. The transmission protocol does not start sending application data until a connection has been established using the TCP three way handshake.
 
 49. **How do sockets on the implementation level relate to the idea of protocols being connectionless or connection-oriented?** 
 In a connectionless system, we could assign 1 port to a particular process running on an that machine, and listen for all incoming traffic directed to that port.
@@ -433,8 +441,12 @@ When a protocol is connection ortiented, it means that we want to establish a re
 52. **What is a three-way handshake? What is it used for?**
 The three-way handshake is the process which TCP uses to establish a connection between the sender and the receiver.
 
+The three way handshake consists of the sender sending a SYN message to the receiver
+The receiver responds to the syn message with a SYN ACK message
+Once the sender rceives the servers SYN ACK, it responds with a ACK message and immediately starts sending data.
+
 53. **What are the advantages and disadvantages of a Three-way handshake?** 
-The advantages of the three way handshake is that it establishes a reliable communication channel.
+The advantages of the three way handshake is that it establishes a reliable communication channel, ensuring a connection is made before attempting to send data.
 
 The disadvantages is performance. The three-way handshake requires a round trip of latency before the start of transmission of data.
 
@@ -444,25 +456,24 @@ Multiplexing and demultilexing is a general concept that can be applied in lots 
 Multiplexing and demultiplexing in the context of the transportation layer is that the inclusion of port numbers in the PDU for this layer allows for multiple applications to communicate over the same physical connection at the same time.
 
 55. **How does TCP facilitate efficient data transfer?**
-In order to help facilitate efficient data transfer once a conenction is established, TCP provides mechanisms for flow control and congestion avoidance.
+In order to help facilitate efficient data transfer once a connection is established, TCP provides mechanisms for flow control and congestion avoidance allowing sender and receiver to communicate how much data can be processed on either end of the connection. Both of these techniques use the WINDOW Size field to change the size of the transmission.
 
 56. **What is flow control? How does it work and why do we need it?**
-Flow control is a mechanism to prevent the sender from overwhelming the reveiver with too much data at once. It is required as the receiver will only be able to process a certain amount fo data in a particular time-frame due to buffer sizes.
+Flow control is a mechanism to prevent the sender from overwhelming the reveiver with too much data at once. It is required as the receiver will only be able to process a certain amount fo data in a particular time-frame due to buffer size. This is implemeneted using the WINDOW size field in the TCP segment and allows the receiver to communicate the amount of data it is capable of receiver to the sender.
 
 57. **How TCP prevents from receiver's buffer to get overloaded with data?**
-In order to not overwhelm the receivers buffer, each side of the connection can let the other side of the connection know how much data they are willing to accept via the WIDNOW field of the TCP header. This number can change throughout the course of a connection.
+In order to not overwhelm the receivers buffer, each side of the connection can let the other side of the connection know how much data they are willing to accept via the WIDNOW size field of the TCP header. This number can change throughout the course of a connection depending on processing loads.
 
 58. **What is congestion avoidance?**
 Congestion avoidance is changing how much data is sent on the network at a particular time due to how much data is being lost. TCP reduces the amount of data it sends out based of data loss feedback and uses this data to detect and avoid network congestion by reducing TCP segment size.
 
-
 59. **What is network congestion?**
-Network congestions is a situation that occurs when there is more data being trasnmittied ont henetwork than there is network capacity to process and transmit the data.
+Network congestions is a situation that occurs when there is more data being transmitted ont a network than there is network capacity to process and continue transmitting the data.
 
-Congestion can be thought of as gridlock on a road network. However, instead of cars getting stuck standing still, excess cars are lost al together.
+Congestion can be thought of as gridlock on a road network. However, instead of cars getting stuck standing still, excess cars are lost all together.
 
 60. **How do transport layer protocols enable communication between processes?**
-Transport layers using source and destination port numbers to direct the data to the correct processes on the host.
+Transport layers use source and destination port numbers to direct the data to the correct processes on the host.
 
 61. **Compare UDP and TCP. What are similarities, what are differences? What are pros and cons of using each one?** 
 UDP and TCP are both transport layer protocols. TCP is a connection oriented protocol, while UDP is connectionless.
@@ -481,16 +492,18 @@ UDP provides for speed and flexibility, at teh cost of reliability.
 62. **What does it mean that network reliability is engineered?**
 This means that network reliability is achieved through protocols that implement error checking, in order delivery, message delviery, etc. These are not underlying characteristics of the physical network, but the work of protocols at higher levels.
 
+What we mean by network reliability being engineered it that the underlying physical network is inherently unreliable. Data can be lost or dropped, corrupted, or manipulated along it's trip from start point to end point. It takes higher level protocols like TCP to put transmission rules in place to ensure that all sent data arrives on the receiving end in the correct state, without being changed or affected along it's journey.
+
 63. **Give an overview of the Application Layer.** 
 Both TCP/IP and OSI models define an Application layer as the topmost layer in their resepctive layered system.
 To be clear, the application layer is not the application itself, but the set of protocols which provide communication services to applications.
-The protocols which exist at this layer are the ones with which the application most directly interacts. Application layer protocols rely on lower levle protocols to ensure the message gets to where it is supposed to, and focus instead on the strucutre of that message and the data that it should contain.
+The protocols which exist at this layer are the ones with which the application most directly interacts. Application layer protocols rely on lower level protocols to ensure the message gets to where it is supposed to go, and focus instead on the structure of that message and the data that it should contain.
 
 64. **What is HTML?**
-HTML is Hypter text markup language, and can be thought of as the bones of a website.
+HTML is an acronym for Hyptertext markup language, and can be thought of as the bones of a website. HTML consists of using tags in `<>` brackets such as `h1` for a header, or `<a>` for a link.
 
 65. **What is a URL and what components does it have?**
-A URL is a Uniform Resource Locator, and is the address or phone number you need to visit or communicate with that resource.
+A URL is a Uniform Resource Locator, and can be thought of as the the street address or phone number you need to visit or communicate with that resource.
 
 The `http://www.example.com:88/home?item=book` URL consists of theses components:
 https = The scheme
@@ -500,7 +513,7 @@ www.example.com = THe host
 ?item=book = query string, made up of query parameters.
 
 66. **What is a Query string? What it is used for?**
-Query strings are started by the `?` character and are used to send data to the server.
+Query strings are started by the `?` character and are used to send data to the server. The query string consists of query parameters, key value pairs that send additional data to the server. The pairs are split with a `=` and multiple parameters are joined using the `&` symbol.
 
 67. **What URL encoding is and when it might be used for?**
 URL encoding serves the purpose of replacing non-conforming characters with a `%` symbol followed by the two hexademical digits that represent the equivalent UTF-8 character.
