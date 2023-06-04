@@ -619,38 +619,38 @@ Some common status codes are 200 - OK, 302 - found, 404 - not found, 500 - inter
 Modern web applications can employ a number of different techniques to simulate being a stateful application. This is most commonly done using Cookies, session IDs, and/or AJAX.
 
 97. **What role does AJAX play in displaying dynamic content in web applications?**
-AJAX is short of Asynchronous JavaScript and XML. IT's main feature is tha tit allows browsers to issue requests and process responses without a full page refresh. This allows for for only parts of the webpage to refresh when a request/response cycle has occured from some user input.
+AJAX is short of Asynchronous JavaScript and XML. It's main feature is that it allows browsers to issue requests and process responses without a full page refresh. This allows for for only parts of the webpage to refresh when a request/response cycle has occured from some user input, both saving resources and appearing as a stateful application.
 
 98. **Describe some of the security threats and what can be done to minimize them?**
-As HTTP is so difficult to control, this also makes it so difficult to secure. Some of the security threads of HTTP are session id theft, other apps browsing cookie history, users adding raw viewable HTML to a site via a comment tab, etc. In order to minimize these risks, we can emply tecniques like HTTPS, same-origin policy, setting expiration time to session IDs.
+As HTTP is so difficult to control, this also makes it so difficult to secure. Some of the security threats of HTTP are session id theft, other apps browsing cookie history, users adding raw viewable HTML or JavaScript to a site via a comment tab, etc. In order to minimize these risks, we can emply tecniques like HTTPS, same-origin policy, and setting expiration times to active session IDs.
 
 99. **What is the Same Origin Policy? How it is used to mitigate certain security threats?**  
-The same origin policy permits unrestricted interactions between resources orginiating from the same origin, but restricts certain interactions between resources orginating from differents origins. By origin here we mean same scheme, host, and port. Same-origin policy does not restrict al cross-orogin requests, but what it does restrict are cross-origin request where resources are being accessed programmatically using APIs such as `XmlHttpRequeest` or `fetch`. The same origin policy is an important guard against session hijacking attacks and servers as a cornerstone of web application security.
+The same origin policy permits unrestricted interactions between resources orginiating from the same origin, but restricts certain interactions between resources orginating from differents origins. By origin here we mean same scheme, host, and port. Same-origin policy does not restrict al cross-origin requests, but what it does restrict are cross-origin requests where resources are being accessed programmatically using APIs such as `XmlHttpRequeest` or `fetch`. The same origin policy is an important guard against session hijacking attacks and servers as a cornerstone of web application security.
 
 100. **What determines whether a request should use `GET` or `POST` as its HTTP method?**
 Requests using the GET method are used to retrive or ask for information from  a server.
-To send or submit data toa  server we use POST.
+To send or submit data to a server we use the POST HTTP method.
 
 101. **What is the relationship between a scheme and a protocol in the context of a URL?**
-The scheme identifies which protocol should be used.
+The scheme identified in the url before the `://` identifies which protocol should be used.
 
 102. **In what ways can we pass information to the application server via the URL?**
-To pass information to the server via the URL, we can use the path and parameters. Query are the key value pairs that are seperated by `=`, joined by `&`, and begin after the `?` in a url.
+To pass information to the server via the URL, we can use the path and query parameters. Query parameters are the key value pairs that are seperated by `=`, joined by `&`, and begin after the `?` in a url. The path can indicate which page we wish to access direclty, rather than the hosts default home(root) page.
 
 103. **How insecure HTTP message transfer looks like?**
-HTTP requests and responses are sent as plain text, with no encryption to make the data transfer secure.
+HTTP requests and responses are sent as plain text, with no encryption to make the data transfer secure. In order for the request/response messages to be encrypted we need to use HTTPS witch uses TLS to encrpyt the data transfer.
 
 104. **What services does HTTP provide and what are the particular problems each of them aims to address?**
 HTTP gives users a way to interact with a web resources via its request-response cycle.
 
 105. **What is TLS Handshake?**
-The TLS(transport layer security) handshake is what TLS uses to set up an encrypted connection. It is a 4 step process where client and server exchange messages to enable encrypted communication using symmetric keys.
+The TLS(transport layer security) handshake is what TLS uses to set up an encrypted message exchange between host and server. It is a 4 step process where client and server exchange messages to enable encrypted communication using symmetric keys.
 
 106. **What is symmetric key encryption? What is it used for?**
 Symmetric key encryption is when both sender and receiver of a ciphertext message have a copy of the same key, which is responsible for both encrypting and decrypting the message.
 
 107. **What is asymmetric key encryption? What is it used for?**
-Asymmetric key encryption is when we use a public key and a private key. The public key is used to encrypt, and the private key is used to decrypt. Asymmetric key encription is intended to work in one directon only.
+Asymmetric key encryption is when we use a public key and a private key. The public key is used to encrypt, and the private key is used to decrypt. Asymmetric key encription is intended to work in one directon only. This asymmetric key encryption is used for the transfer of the symmetric key in the TLS handshake.
 
 108. **Describe SSL/TLS encryption process.**
 The TLS encryption process revolves around the TLS handshake.
@@ -668,36 +668,39 @@ The steps are:
 4. The server also sends a message with `ChangeCipherSpec` and `Finished` flags. The client and server can now begin secure communication using the symmetric key.
 
 109. **Describe the pros and cons of TLS Handshake**
-The pros of the TLS handshake is that it enable encrypted transfer of data, secure connection with the server, and verifies the server is who they say they are.
+The pros of the TLS handshake is that it enables encrypted transfer of HTTP request/response data, establishes a secure connection with the server, and verifies the server is who they say they are.
 
-The downsides are performance, as the TLS handshake requires 2 roundtrips of latency in order to become established.
+The downsides are performance, as the establsihed of a secure connection via the TLS handshake requires 2 roundtrips of latency in order to become established, there is an additional amount of time before data transfer can actually begin occuring.
 
 110. **Why do we need digital TLS/SSL certificates?**
-TLS certificates are used to verify that the server we are communicating with actually is the intended server of the site we are trying to reach. 
+TLS certificates are used to verify that the server we are communicating with actually is the intended server of the site we are trying to reach. These certificates are issued to sites via a leveled certificate authoritie system, and rely on a chain of trust, trusting the reputation of the root CA that starts the chain.
 
 111. **What is it CA hierarchy and what is its role in providing secure message transfer?**
 CA (certificate authorities) are who issue digital certificates. There are three different levels of CA, site certificate, intermediate CA can be any company or body authorised by ROOT CAs. The purpose of this chain like strucuture is the level of security it provides. Ulatimately though, ROOT CA's are trusted because of their repurtaion and longevity.
 
 112. **What is Cipher Suites and what do we need it for?**
-A cipher suite is a suite or set of ciphers. A cipher is a cryptographic algorithm; in other words they are sets or steps for performing encryption and decryption.
+A cipher suite is a group or set of ciphers that are used for cyryptohraphy. A cipher is a cryptographic algorithm; in other words they are sets or steps for performing encryption and decryption.
 
 A cipher suite is used by TLS for different aspects of establishing and maintaining a secure connection.
 
 113. **How does TLS add a security layer to HTTP?**
-TLS adds a security layer to HTTP by establishing a securing connection for data transfer.
+TLS adds a security layer to HTTP by establishing a secure connection for data transfer by ensuring the server is who they say they are, encrypting the data being sent back and forth, and ensuring the data sent back and forth has not been tampered with during transit.
 
 114. **Compare HTTP and HTTPS.**
 The biggest difference between HTTP and HTTPS is that HTTP does not use encryption to protect data between client and server.
 
 115. **Does HTTPS use other protocols?** 
-HTTPS using TLS as an additional protocol for safe encrypted data transfer and the establishment of secure connections betwene client and server.
+HTTPS is the combination of the HTTP and TLS protocols. This combination allows for safe encrypted data transfer and the establishment of secure connections between client and server.
 
 116. **How do you know a website uses HTTPS?**
-https will be visible in the URL, and will also required the use of site cerificates which can be viewed in most browsers.
+The `https` scheme will be visible in the URL, and this protocol combination will also require the use of site cerificates which can be viewed in most browsers.
 
 117. **Give examples of some protocols that would be used when a user interacts with a banking website. What would be the role of those protocols?** 
 HTTPS would be used to make the request to the server and have the server issue a response.
 TLS would also be used to have an encrypted channel of communication between client and server, and authenticate that the server is actually the bank i'm trying to reach, lastly TLS would also be used to ensure that the data transferred has not been tampered with.
+TCP would be used to establish a reliable connection between host and server
+IP would be used to get the information from client to server and back again.
+Ethernet would be used to direct the data at each hop along it's journey.
 
 118. **What is server-side infrastructure? What are its basic components?**
 The basic components of server-side infrastructure would be; web-server, application server, and a data store.
@@ -706,17 +709,17 @@ THe application server, is typically where application and business logic reside
 The data store, is often where the application layer will go to consult persistent data like a relational database, to retrive or create data.
 
 119. **What is a server? What is its role?** 
-A server is essentially a program or bit of software that someone wrote and their purpose is to serve webpages.
+A server is essentially a program or bit of software that someone wrote and their purpose is to serve webpages or application data.
 
 120. **What are optimizations that developers can do in order to improve performance and minimize latency?**
-The simplest of techniques is to consider whether every resource or depency that your application uses is strictly necessary.
+The simplest of techniques is to consider whether every resource or dependency that your application uses is strictly necessary.
 
-Another technique for improivng profmrance is data compression.
+Another technique for improving performance is data compression, this is using bits of software to reduce file sizes, allowing for quicker data transfer.
 
-Reusing TCP Connections.
+Reusing TCP Connections. This allows the client-server interaction to keep a connection alive, and allows us to skip the TCP 3 way handshake on each new interaction.
 
 DNS Optimizations
-As every request to connec to a domain will involve a DNS lookup, this area is a prime candidate for optimization. The first way to improve this is by reducing the number of host names that need to be resolved. Another method is download any external resources and host them locally on the server that is hosting the web app, a third avenue is to use a faster DNS provider.
+As every request to connect to a domain will involve a DNS lookup, this area is a prime candidate for optimization. The first way to improve this is by reducing the number of host names that need to be resolved. Another method is download any external resources and host them locally on the server that is hosting the web app, a third avenue is to use a faster DNS provider.
 
 Caching
 What we mean by caching for optimization is server-side. Caches are a seperate component from the host server and are essentially short-term memory banks. What they do is store content that was recently accessed by a user so that next time that content is request it can be delivered more quickly.
