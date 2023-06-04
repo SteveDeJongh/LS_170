@@ -530,16 +530,16 @@ THe character is reserved for special use within the URL scheme.
 The `www` in a url stands for world wide web and is a service that can be accessed via the internet. In simple terms, it's a vast information system comprised of resources which are navigable by means of a URL.
 
 70. **What is URI?**
-A URI is a Uniform Resource Identifier, which specifies how resources are located.
+A URI is a Uniform Resource Identifier, which specifies how resources are located. a URL is a type of URI.
 
 71. **What is the difference between scheme and protocol in URL?**
 The scheme is what tells the web client how to access the resource. It's what comes before the `://` in a URL. The connection between the scheme and the protocol is that the scheme can indicate which protocol should be used to access the resource.
 
 72. **What is HTTP?**
-HTTP is Hypertext ransfer protocol and is the set of rules which provide unformity to the way resources on the web are transferred between applications.
+HTTP is Hypertext transfer protocol and is the set of rules which provide uniformity to the way resources on the web are transferred between applications.
 
 73. **What is the role of HTTP?**
-THe role of HTTP is to provide a set of rules to provide unformity to the way resource on teh web arae transferred between applications.
+The role of HTTP is to provide a set of rules to provide uniformity to the way resource on the web are transferred between applications.
 
 74. **Explain the client-server model of web interactions, and the role of HTTP as a protocol within that model**
 The client-server model of web interactions refers to the request-response cycle of the HTTP protocol, where everytime an action is requested by the client, the server issues a response.
@@ -561,34 +561,34 @@ In the context of the web, state could reference the users log in status, prefil
 Statelessness in the context of a web protocol refers to how no lingering information is stored, or connection mainted with, on the server regarding the past interactions of a client.
 
 79. **What is a stateful Web Application?**
-A stateful web application is an application in which through the use of cookies, session ID's or AJAX, the application appears to remember something like if a user is logged in.
+A stateful web application is an application in which through the use of cookies, session ID's or refreshing only parts of a page via AJAX, the application appears to remember the state of the previously loaded webpage like if a user is logged in, or certain form feilds were filled out.
 
 80. **How can we mimic a stateful application?**
-We can mimic a stateful application through the use of cookies, session ID's, or AJAX, along with through query strings in the URL.
+We can mimic a stateful application through the use of cookies, session ID's, or AJAX, along with sending additional dataa to the server via query strings in the URL.
 
 81. **What is the difference between stateful and stateless applications?**
 As HTTP is a stateless protocol, each request/response cycle is independent of request and responses that came before or those that come after.
 
-A sateful application is one which remembers things like user log in status.
-A stateless application is one which treats every request and response completeley independently.
+A sateful application is one which remembers things like user log in status, the application will use techniques like sessions IDs and cookies to remember information about the requesting party.
+A stateless application is one which treats every request and response completeley independently, in other words, not using any additional techniques to make HTTP appear as if it remembers state.
 
 82. **What does it mean that HTTP is a 'stateless protocol?** 
 HTTP as a stateless protocol means that each request/response cycle is treated as independent of any request and responses that came before or those that come after.
 
 83. **Why HTTP makes it difficult to build a stateful application?**
-Because it is a stateles protocol.
+Because it is a stateles protocol. The means that on each client/server interaction, ALL required information about the clients state within the application needs to be sent.
 
 84. **How the idea that HTTP is a stateless protocol makes the web difficult to secure?** 
-In the same way that HTTP is made so difficult to control, it also makes it so difficult to secure.
+In the same way that HTTP is made so difficult to control, it also makes it so difficult to secure. This is due to the same techniques used that make a application or webpage appear sateful also pose a serious security threat.
 
 85. **What is a `GET` request and how does it work?** 
 A GET request is an HTTP method used to ask to retrieve the resource at that address.
 
 86. **How is `GET` request initiated?**
-GET Requests are initiated by clicking a link or via the address bar of a browser.
+GET Requests are initiated by clicking a link on a webpage, entering a URL via the address bar of a browser, or via a HTTP request tool.
 
 87. **What is the HTTP response body and what do we use it for?**
-The HTTP response body is the actual data that is beign transmitted in a HTTP message.
+The HTTP response body is the actual data that is beign transmitted in a HTTP message. This can be any type of data, with the type of data typically being defined by a HTTP response header. 
 
 88. **What are the obligatory components of HTTP requests?** 
 The obligatory components of a HTTP request are the request line, and headers.
