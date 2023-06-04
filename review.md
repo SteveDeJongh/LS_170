@@ -236,7 +236,7 @@ Cross-Site Scripting (XSS) is a type fo attack that happens when you allow users
 At the most basic level, a network is two devices connected in such a way that they can communicate or exchange data. A Network can rely on a hub or switches to bridge different devices or partition parts of the network, or have all devices connected on a single wire.
 
 2. **What is the Internet?**
-We can imagine te internet as a vast number of these networks connected together, a network of networks.
+We can imagine the internet as a vast number of these networks connected together, a network of networks.
 
 3. **Is the Internet the same thing as a network?** 
 No, as soon as we require inter-network communication we require the inclusion of a router. Routers enable inter-network comunication, and it's the connection of different routers and networks that makes up the internet, the infrastructure allowing inter-network communication.
